@@ -10,13 +10,14 @@ type NewMessageProps = {
 export const NewMessage: FC<NewMessageProps> = ({
   addMessageHandler
 }) => {
-  const [message, setMessage] = useState<Message>({title: "", message: ""});
+  const [message, setMessage] = useState<Message>(
+    {id: 0, title: "", message: ""});
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(message); 
     addMessageHandler(message);
-    setMessage({title: "", message: ""});
+    setMessage({id: 0, title: "", message: ""});
   }
 
   const handleTitleChange = (e: ChangeEvent<HTMLInputElement>) => {

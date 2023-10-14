@@ -15,7 +15,7 @@ export const OldMessages: FC<OldMessagesProps> = ({messages}) => {
         <div className='.message-container'>
           { messages? messages.map((message) => {
               return (
-                <MessageCard message={message} />
+                <MessageCard key={message.id} message={message} />
               );
             }): 
             (<></>)

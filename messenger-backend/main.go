@@ -8,6 +8,7 @@ import (
      "net/http"
      "encoding/json"
 
+    "github.com/gin-contrib/cors"
     "github.com/gin-gonic/gin"
 
     "github.com/fbeethoven/messenger/messenger-backend/models"
@@ -27,6 +28,9 @@ func main() {
     }
 
     router := gin.Default()
+    
+    router.Use(cors.Default())
+
     router.GET("/messages", getMessages)
     router.POST("/message", postMessage)
 
